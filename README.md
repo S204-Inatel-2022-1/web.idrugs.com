@@ -1,6 +1,19 @@
 # web.idrugs.com
 Página Web responsável por cadastros por parte da farmácia.
 
+# Informações para funcionamento
+1. Baixar e Instalar Node.js
+2. Verificar instalação (digite no terminal)
+	1. node -v
+	2. npm -v
+2. -Baixar Visual Studio Code (Recomendado)
+3. git clone ...
+4. Dependencias -> No terminal, dentro da pasta que o git clone fez (.....\web.idrugs.com>)
+    -npm install
+5. Rodar o projeto:
+    -npm start
+#
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
