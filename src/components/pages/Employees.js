@@ -1,6 +1,6 @@
 function Employees() {
     return (
-        <h1>Funcionarios</h1>
+        <h1>Funcionários</h1>
     )
 }
 

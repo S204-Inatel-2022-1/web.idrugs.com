@@ -24,7 +24,11 @@ function Navbar() {
                     </li>
 
                     <li className={styles.item}>
-                        <Link to="/Employees">Funcionarios</Link>
+                        <Link to="/Products">Produtos</Link>
+                    </li>
+
+                    <li className={styles.item}>
+                        <Link to="/Employees">Funcionários</Link>
                     </li>
                 </ul>
             </Container>
