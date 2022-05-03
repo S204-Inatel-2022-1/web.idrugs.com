@@ -1,5 +1,5 @@
 # web.idrugs.com
-Página Web responsável por cadastros por parte da farmácia 
+Página Web responsável por cadastros por parte da farmácia.
 
 # Getting Started with Create React App
 
