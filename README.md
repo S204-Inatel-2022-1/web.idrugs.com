@@ -9,9 +9,9 @@ Página Web responsável por cadastros por parte da farmácia.
 2. -Baixar Visual Studio Code (Recomendado)
 3. git clone ...
 4. Dependencias -> No terminal, dentro da pasta que o git clone fez (.....\web.idrugs.com>)
-    -npm install
+    npm install
 5. Rodar o projeto:
-    -npm start
+    npm start
 #
 
 # Getting Started with Create React App
