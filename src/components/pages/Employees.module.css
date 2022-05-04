@@ -1,0 +1,10 @@
+.control {
+    display: flex;
+    width: 100%;
+}
+
+.control_div {
+    margin-right: 2em;
+    padding: 2em;
+    width: 100%;
+}

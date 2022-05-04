@@ -1,107 +1,31 @@
-import React, { useState, useEffect} from "react";
+//styles
+import styles from "./Employees.module.css";
+
+//employees
+import EmpForm from "../employees/EmpForm";
 
 function Employees() {
 
-    const [inputName, setInputName] = useState("")
-    const [inputEmail, setInputEmail] = useState("")
-    const [inputPassword, setInputPassword] = useState("")
-    const [data, setData] = useState([{}])
-
-    //POST request
-    useEffect(() => {
-        if(!inputEmail || !inputName || !inputPassword) {
-            console.log("Invalid input value, returning early")
-            return
-        }
-
-        fetch("/user", {
+    function create(emp) {
+        fetch("http://localhost:8080/user", {
             method: 'POST',
-            body: JSON.stringify({
-                name: inputName,
-                email: inputEmail,
-                password: inputPassword
-            }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
-            }
+            },
+            body: JSON.stringify(emp),
         })
-        .then(response => {
-                return response.json()
-            })
-        .then(emp => {
-                const newEmp = data.concat(emp)
-                setData(newEmp)
-
-                //clean input
-                setInputEmail('')
-                setInputName('')
-                setInputPassword('')
-                return console.log(emp)
-            });
-    })
-
-    //GET request
-    useEffect(() => {
-        fetch("/user").then(
-            res => res.json()
-        ).then(
-            data => {
-                setData(data)
-                console.log(data)
-            }
-        )
-    }, [])
-
-    const Change = (evt) => {
-        evt.preventDefault()
-        setInputName(evt.target.elements.nome.value)
-        setInputEmail(evt.target.elements.email.value)
-        setInputPassword(evt.target.elements.senha.value)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+        })
     }
 
     return (
-        <div>
+        <div className={styles.control}>
             <div>
-                <form onSubmit={Change}>
-                    <div>
-                        <input 
-                            type="text" 
-                            name="nome"
-                            placeholder="Digite nome"/>
-                    </div>
-                    <div>
-                        <input 
-                            type="text" 
-                            name="email"
-                            placeholder="Digite email"/>
-                    </div>
-                    <div>
-                        <input 
-                            type="text" 
-                            name="senha"
-                            placeholder="Digite senha"/>
-                    </div>
-                    <div>
-                        <button>Adicionar</button>
-                    </div>
-                </form>
-            </div>
-
-            <div>
-                {data.map((item) => (
-                    <ul>
-                        <li key={item.id}>
-                            nome:{item.name}
-                        </li>
-
-                        <li key={item.id}>
-                            email:{item.email}
-                        </li>
-
-                    </ul>
-
-                ))}
-            </div>
+                <h2>Adicionar Novos Funcionários</h2>
+                <EmpForm handleSubmit={create} btnText="Adicionar Funcionário"/>
+            </div>        
         </div>
     )
 }
