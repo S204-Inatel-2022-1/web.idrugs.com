@@ -7,7 +7,7 @@ import EmpCard from "../employees/EmpCard";
 
 //layout
 import Message from "../layout/Message";
-import Container from "../layout/Container";
+
 //Hooks
 import { useState, useEffect } from "react";
 
@@ -44,7 +44,6 @@ function Employees() {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
             setEmployees(data)
         })
         .catch((err) => console.log(err))
@@ -61,12 +60,13 @@ function Employees() {
                      {employees.length > 0 && 
                         employees.map((emp) => (
                             <EmpCard 
+                                id={emp._id.$oid}
                                 name={emp.name}
-                                //last_name={emp.last_name}
-                                //office={emp.office}
-                                link_photo={emp.link_photo}
+                                last_name={emp.last_name}
+                                office={emp.office}
+                                link_photo="https://img.elo7.com.br/product/original/3EECB71/desenho-personalizado-para-usar-de-foto-de-perfil-e-etc-personalizado.jpg"
                                 email={emp.email}
-                                key={emp.id}
+                                key={emp._id.$oid}
                             />
                         ))}
                 </div>
