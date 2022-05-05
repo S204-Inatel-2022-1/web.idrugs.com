@@ -12,11 +12,11 @@
 .form_control input {
     padding: .7em;
     border-radius: .3em;
-    border: none;
+    border: 1px solid #bdbdbd;
     width: 275px;
     justify-content: center;
 }
 
 .form_control input::placeholder {
-    color: #7b7b7b;
+    color: #bdbdbd;
 }

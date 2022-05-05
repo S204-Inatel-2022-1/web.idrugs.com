@@ -12,7 +12,12 @@ function EmpForm({btnText, handleSubmit, empData}) {
 
     //GET request
     useEffect(() => {
-        fetch("/user")
+        fetch('https://idrugs-app.herokuapp.com/idrugs-app/pharma/user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then((res) => res.json())
         .then((data) => {
                 setData(data)
@@ -36,6 +41,27 @@ function EmpForm({btnText, handleSubmit, empData}) {
                 text="Nome do Funcionario"
                 name="name"
                 placeholder="Digite nome do funcionário"
+                handleOnChange={handleChange}
+            />
+            <Input
+                type="text" 
+                text="Ultimo Nome do Funcionario"
+                name="last_name"
+                placeholder="Digite último nome do funcionário"
+                handleOnChange={handleChange}
+            />
+            <Input
+                type="text" 
+                text="Cargo"
+                name="office"
+                placeholder="Digite cargo do funcionário"
+                handleOnChange={handleChange}
+            />
+            <Input
+                type="text" 
+                text="Link para foto"
+                name="link_photo"
+                placeholder="Digite link para foto"
                 handleOnChange={handleChange}
             />
             <Input

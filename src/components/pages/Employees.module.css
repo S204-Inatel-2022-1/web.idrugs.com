@@ -1,10 +1,35 @@
 .control {
     display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.control_div_emp {
+    margin-right: 2em;
+    margin-bottom: 1.5em;
+    padding: 2em;
     width: 100%;
 }
 
-.control_div {
-    margin-right: 2em;
-    padding: 2em;
-    width: 100%;
+.control_list {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, 30%);
+    justify-content: center;
+    justify-items: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 1.2em;
+}
+
+.control_add {
+    padding: 1em;
+    height: 700px;
+    border: 1px solid #000;
+    margin: 1em auto auto;
+    border-radius: 5px;
+    background-color: #fdfdfd;
 }
