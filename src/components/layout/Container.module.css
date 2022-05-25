@@ -4,6 +4,8 @@
     justify-content: center;
     margin: 0 auto;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
 }
 
 .min-height {

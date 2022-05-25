@@ -1,10 +1,17 @@
 .emp_card {
-    width: 32%;
-    height: 400px;
-    padding: 1em;
+    width: 32.5%;
+    height: 430px;
+    padding: 0.6em;
     border: 1px solid #000;
     border-radius: 8px;
-    margin: 0.5%
+    margin: 0.4%;
+    position: relative;
+    z-index: 2;
+}
+
+.emp_card_height {
+    min-height: 200px;
+    margin-bottom: 10px;
 }
 
 .emp_card img {
@@ -14,6 +21,7 @@
 }
 
 .emp_card h4 {
+    border-radius: 5px;
     background-color: #282c34;
     color: #FFF;
     padding: 0.2em;
@@ -31,9 +39,11 @@
 }
 
 .emp_card_actions {
-    margin-top: 1.2em;
     display: flex;
     align-items: center;
+    margin-bottom: 0px;
+    position: relative;
+    z-index: 1;
 }
 
 .emp_card_actions a,
