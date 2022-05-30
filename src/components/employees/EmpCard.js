@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styles from "./EmpCard.module.css"
 
 import { BsPencil, BsFillTrashFill } from "react-icons/bs";
@@ -7,7 +6,7 @@ import { useState } from "react";
 //LAYOUT
 import Modal from "../layout/Modal";
 
-function EmpCard({id, name, last_name, office, photo_link, email, handleRemove}) {
+function EmpCard({id, name, last_name, office, photo_link, email, handleRemove, handleEdit}) {
 
     function photo(photo_link) {
         if(photo_link){
@@ -18,21 +17,34 @@ function EmpCard({id, name, last_name, office, photo_link, email, handleRemove})
         return "https://cityhighschool.org/files/nophoto.png"
     }
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    //Delete Modal
+    const [deleteModal, setDeleteModal] = useState(false);
 
-    function openModal() {
-        setModalIsOpen(true);
+    function openDeleteModal() {
+        setDeleteModal(true);
     }
-
-    function closeModal() {
-        setModalIsOpen(false);
+    function closeDeleteModal() {
+        setDeleteModal(false);
     }
-
     const remove = (e) => {
         e.preventDefault()
-        console.log(id)
         handleRemove(id)
     }
+
+    //Edit Modal
+    const [editModal, setEditModal] = useState(false);
+
+    function openEditModal() {
+        setEditModal(true);
+    }
+    function closeEditModal() {
+        setEditModal(false);
+    }
+    const edit = (e) => {
+        e.preventDefault()
+        handleEdit(id)
+    }
+
 
     return(
         <>
@@ -48,22 +60,27 @@ function EmpCard({id, name, last_name, office, photo_link, email, handleRemove})
                 <p> <span>Cargo:</span> {office}    </p>
 
                 <div className={styles.emp_card_actions}>
-                    <Link to="/">
+                    {/*UPDATE */}
+                    <button onClick={openEditModal}>
                         <BsPencil /> Editar
-                    </Link>
+                    </button>
+                    <Modal open={editModal} >
+                        <div>
+                            <button onClick={closeEditModal}>Cancelar</button>
+                            <button onClick={edit}>Salvar</button>
+                        </div>
+                    </Modal>
 
-                    <button onClick={openModal}>
+                    {/*DELETE */}
+                    <button onClick={openDeleteModal}>
                         <BsFillTrashFill /> Excluir
                     </button>
-
-                    <Modal
-                        open={modalIsOpen} 
-                        action={remove}
-                        onClose={closeModal} 
-                        confirm='Excluir' 
-                        notConfirm='Cancelar'
-                    >
-                        <p>Tem certeza que deseja excluir esse funcionário ?</p>
+                    <Modal open={deleteModal} >
+                        <div>
+                            <p>Tem certeza que deseja excluir esse funcionário ?</p>
+                            <button onClick={closeDeleteModal}>Cancelar</button>
+                            <button onClick={remove}>Deletar</button>
+                        </div>
                     </Modal>
                 </div>
             </div>

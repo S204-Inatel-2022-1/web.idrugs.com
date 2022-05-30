@@ -22,23 +22,6 @@ function Employees() {
     //Messages
     const [deleteMessage, setDeleteMessage] = useState('')
     const [addMessage, setAddMessage] = useState('')
-    
-
-    //CREATE - method POST
-    function create(emp) {
-        fetch("https://idrugs-app.herokuapp.com/idrugs-app/pharma/user", {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            },
-            body: JSON.stringify(emp),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-            setAddMessage("Funcionário Adicionado com Sucesso!")
-        })
-    }
 
     //GET all employees
     useEffect(() => {
@@ -57,6 +40,22 @@ function Employees() {
         .catch((err) => console.log(err))
 
     }, [])
+
+    //CREATE - method POST
+    function create(emp) {
+        fetch("https://idrugs-app.herokuapp.com/idrugs-app/pharma/user", {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify(emp),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+            setAddMessage("Funcionário Adicionado com Sucesso!")
+        })
+    }
 
     //UPDATE (PUT) Employee
     function updateEmployee(id) {
@@ -113,6 +112,7 @@ function Employees() {
                                 email={emp.email}
                                 key={emp._id.$oid}
                                 handleRemove={removeEmployee}
+                                handleEdit={updateEmployee}
                             />
                         ))}
                         {!removeLoading && <Loading />}

@@ -3,7 +3,7 @@ import ReactDom from "react-dom";
 
 import styles from "./Modal.module.css";
 
-function Modal({open, children, onClose, action, confirm, notConfirm}) {
+function Modal({open, children}) {
 
     if(!open) return null
 
@@ -12,12 +12,7 @@ function Modal({open, children, onClose, action, confirm, notConfirm}) {
         <>
             <div className={styles.overlay}/>
             <div className={styles.control_modal}>
-                {children}
-                <div >
-                    <button onClick={onClose}>{notConfirm}</button>
-                    <button onClick={action}>{confirm}</button>
-                </div>
-                
+                {children}        
             </div>
         </>,
         document.getElementById('portal')
