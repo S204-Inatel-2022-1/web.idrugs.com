@@ -58,13 +58,13 @@ function Employees() {
     }
 
     //UPDATE (PUT) Employee
-    function updateEmployee(id) {
+    function updateEmployee(emp) {
         fetch("https://idrugs-app.herokuapp.com/idrugs-app/pharma/user", {
             method: 'PUT',
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             },
-            body: JSON.stringify({_id: `${id}`}),
+            body: JSON.stringify(emp),
         })
         .then((res) => res.json())
         .then((data) => {
@@ -104,6 +104,7 @@ function Employees() {
                      {employees.length > 0 && 
                         employees.map((emp) => (
                             <EmpCard 
+                                employee={emp}
                                 id={emp._id.$oid}
                                 name={emp.name}
                                 last_name={emp.last_name}

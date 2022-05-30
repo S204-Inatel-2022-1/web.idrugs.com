@@ -1,20 +1,32 @@
-import styles from "./EmpCard.module.css"
-import EmpForm from "./EmpForm";
-
+//styles
+import styles from "./ProdCard.module.css"
+//Product form
+import ProdForm from "./ProdForm";
+// icons
 import { BsPencil, BsFillTrashFill } from "react-icons/bs";
 //hooks
 import { useState } from "react";
 //LAYOUT
 import Modal from "../layout/Modal";
 
-function EmpCard({employee, id, name, last_name, office, photo_link, email, handleRemove, handleEdit}) {
+function ProdCard({product, handleRemove, handleEdit}) {
 
-    function photo(photo_link) {
-        if(photo_link){
-            console.log(photo_link)
-            return photo_link
+    var id = product._id.$oid
+    var name = product.name
+    var brand = product.brand
+    var price = product.price
+    var type = product.type
+    var prescription = product.prescription
+    var description = product.description
+    var phot = product.photo
+    var leaflet = product.leaflet
+
+    function photo(phot) {
+        if(phot){
+            console.log(phot)
+            return phot
         }
-        console.log(photo_link)
+        console.log(phot)
         return "https://cityhighschool.org/files/nophoto.png"
     }
 
@@ -46,14 +58,14 @@ function EmpCard({employee, id, name, last_name, office, photo_link, email, hand
         <>
             <div className={styles.emp_card}>
                 <div className={styles.emp_card_height}>
-                    <img src={photo(photo_link)} alt=""/>
+                    <img src={photo(phot)} alt=""/>
                 </div>
 
-                <h4>{name} {last_name}</h4>
+                <h4>{name}</h4>
 
-                <p> <span>Email:</span> {email}     </p>
+                <p> <span>Marca:</span> {brand}     </p>
 
-                <p> <span>Cargo:</span> {office}    </p>
+                <p> <span>Valor:</span> {price}    </p>
 
                 <div className={styles.emp_card_actions}>
                     {/*UPDATE */}
@@ -62,7 +74,7 @@ function EmpCard({employee, id, name, last_name, office, photo_link, email, hand
                     </button>
                     <Modal open={editModal} >
                         <div>
-                            <EmpForm handleSubmit={handleEdit} btnText="Salvar" empData={employee}/>
+                            <ProdForm handleSubmit={handleEdit} btnText="Salvar" empData={product}/>
                             <button onClick={closeEditModal}>Cancelar</button>
                         </div>
                     </Modal>
@@ -73,9 +85,9 @@ function EmpCard({employee, id, name, last_name, office, photo_link, email, hand
                     </button>
                     <Modal open={deleteModal} >
                         <div>
-                            <p>Tem certeza que deseja excluir esse funcionário ?</p>
+                            <p>Tem certeza que deseja excluir esse Produto ?</p>
                             <button onClick={closeDeleteModal}>Cancelar</button>
-                            <button onClick={remove}>Deletar</button>
+                            <button onClick={remove}>Excluir</button>
                         </div>
                     </Modal>
                 </div>
@@ -84,4 +96,4 @@ function EmpCard({employee, id, name, last_name, office, photo_link, email, hand
     )
 }
 
-export default EmpCard;
+export default ProdCard;

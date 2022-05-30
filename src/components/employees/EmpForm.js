@@ -42,6 +42,7 @@ function EmpForm({btnText, handleSubmit, empData}) {
                 text="Nome do Funcionario"
                 name="name"
                 placeholder="Digite nome do funcionário"
+                value={data.name}
                 handleOnChange={handleChange}
             />
             <Input
@@ -49,6 +50,7 @@ function EmpForm({btnText, handleSubmit, empData}) {
                 text="Ultimo Nome do Funcionario"
                 name="last_name"
                 placeholder="Digite último nome do funcionário"
+                value={data.last_name}
                 handleOnChange={handleChange}
             />
             <Input
@@ -56,27 +58,31 @@ function EmpForm({btnText, handleSubmit, empData}) {
                 text="Cargo"
                 name="office"
                 placeholder="Digite cargo do funcionário"
+                value={data.office}
                 handleOnChange={handleChange}
             />
             <Input
                 type="text" 
                 text="Link para foto"
-                name="link_photo"
+                name="photo_link"
                 placeholder="Digite link para foto"
+                value={data.photo_link}
                 handleOnChange={handleChange}
             />
             <Input
                 type="text"
                 text="Email"
                 name="email"
-                placeholder="Digite email do funcionário" 
+                placeholder="Digite email do funcionário"
+                value={data.email}
                 handleOnChange={handleChange}
             />
             <Input
                 type="password"
                 text="Senha"
                 name="password"
-                placeholder="Digite senha do funcionário" 
+                placeholder="Digite senha do funcionário"
+                value={data.password}
                 handleOnChange={handleChange}
             />
             <SubmitButton text={btnText}/>
