@@ -2,13 +2,13 @@ import {Link} from 'react-router-dom';
 //styles
 import styles from "./ProdCard.module.css"
 //Product form
-import ProdForm from "./ProdForm";
+//import ProdForm from "./ProdForm";
 // icons
-import { BsPencil, BsFillTrashFill } from "react-icons/bs";
+//import { BsPencil, BsFillTrashFill } from "react-icons/bs";
 //hooks
-import { useState } from "react";
+//import { useState } from "react";
 //LAYOUT
-import Modal from "../layout/Modal";
+//import Modal from "../layout/Modal";
 
 function ProdCard({product, handleRemove, handleEdit}) {
 
@@ -16,11 +16,11 @@ function ProdCard({product, handleRemove, handleEdit}) {
     var name = product.name
     var brand = product.brand
     var price = product.price
-    var type = product.type
-    var prescription = product.prescription
-    var description = product.description
+    //var type = product.type
+    //var prescription = product.prescription
+    //var description = product.description
     var phot = product.photo
-    var leaflet = product.leaflet
+    //var leaflet = product.leaflet
 
     function photo(phot) {
         if(phot !== "photo"){
@@ -30,7 +30,7 @@ function ProdCard({product, handleRemove, handleEdit}) {
         return "https://cityhighschool.org/files/nophoto.png"
     }
 
-    //Delete Modal
+    /*Delete Modal
     const [deleteModal, setDeleteModal] = useState(false);
 
     function openDeleteModal() {
@@ -44,7 +44,7 @@ function ProdCard({product, handleRemove, handleEdit}) {
         handleRemove(id)
     }
 
-    //Edit Modal
+    Edit Modal
     const [editModal, setEditModal] = useState(false);
 
     function openEditModal() {
@@ -52,7 +52,7 @@ function ProdCard({product, handleRemove, handleEdit}) {
     }
     function closeEditModal() {
         setEditModal(false);
-    }
+    }*/
 
     return(
         <>

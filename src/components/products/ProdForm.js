@@ -1,8 +1,8 @@
-function ProdForm({btnText, handleSubmit, empData}) {
+function ProdForm() {
 
     return(
         <div>
-
+            <p>...</p>
         </div>
     )
 }
