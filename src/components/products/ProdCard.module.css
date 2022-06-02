@@ -14,13 +14,21 @@
     margin-bottom: 10px;
 }
 
-.emp_card img {
+.emp_card_height a {
+    text-decoration: none;
+}
+
+.emp_card_height a img {
     width: 200px;
     display: block;
     margin: 0px auto;
 }
 
-.emp_card h4 {
+.emp_card a {
+    text-decoration: none;
+}
+
+.emp_card a h4 {
     border-radius: 5px;
     background-color: #282c34;
     color: #FFF;

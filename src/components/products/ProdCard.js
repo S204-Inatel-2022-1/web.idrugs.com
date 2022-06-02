@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 //styles
 import styles from "./ProdCard.module.css"
 //Product form
@@ -22,7 +23,7 @@ function ProdCard({product, handleRemove, handleEdit}) {
     var leaflet = product.leaflet
 
     function photo(phot) {
-        if(phot){
+        if(phot !== "photo"){
             console.log(phot)
             return phot
         }
@@ -57,39 +58,14 @@ function ProdCard({product, handleRemove, handleEdit}) {
         <>
             <div className={styles.emp_card}>
                 <div className={styles.emp_card_height}>
-                    <img src={photo(phot)} alt=""/>
+                    <Link to={`/Product/${id}`}> <img src={photo(phot)} alt=""/> </Link>
                 </div>
 
-                <h4>{name}</h4>
+                <Link to={`/Product/${id}`}> <h4>{name}</h4> </Link>
 
                 <p> <span>Marca:</span> {brand}     </p>
 
                 <p> <span>Valor:</span> {price}    </p>
-
-                <div className={styles.emp_card_actions}>
-                    {/*UPDATE */}
-                    <button onClick={openEditModal}>
-                        <BsPencil /> Editar
-                    </button>
-                    <Modal open={editModal} >
-                        <div>
-                            <ProdForm handleSubmit={handleEdit} btnText="Salvar" empData={product}/>
-                            <button onClick={closeEditModal}>Cancelar</button>
-                        </div>
-                    </Modal>
-
-                    {/*DELETE */}
-                    <button onClick={openDeleteModal}>
-                        <BsFillTrashFill /> Excluir
-                    </button>
-                    <Modal open={deleteModal} >
-                        <div>
-                            <p>Tem certeza que deseja excluir esse Produto ?</p>
-                            <button onClick={closeDeleteModal}>Cancelar</button>
-                            <button onClick={remove}>Excluir</button>
-                        </div>
-                    </Modal>
-                </div>
             </div>
         </>
     )

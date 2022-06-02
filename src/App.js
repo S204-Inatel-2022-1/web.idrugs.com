@@ -5,6 +5,7 @@ import Departments from './components/pages/Departments';
 import Home from './components/pages/Home';
 import Employees from './components/pages/Employees';
 import Products from './components/pages/Products';
+import Product from './components/pages/Product';
 
 //LAYOUT
 import Container from './components/layout/Container';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Departments" element={<Departments />} />
           <Route path="/Employees" element={<Employees />} />
           <Route path="/Products" element={<Products />} />
+          <Route path="/Product/:id" element={<Product />} />
         </Routes>
       </Container>
 
