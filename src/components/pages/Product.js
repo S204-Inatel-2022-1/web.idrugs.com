@@ -1,9 +1,9 @@
-import styles from "/Product.module.css";
+import styles from "./Product.module.css";
 
 function Product() {
     return(
         <div>
-             <div className={styles.emp_card_actions}>
+             <div className={styles.prod_card}>
                 
                 <button onClick={openEditModal}>
                     <BsPencil /> Editar
