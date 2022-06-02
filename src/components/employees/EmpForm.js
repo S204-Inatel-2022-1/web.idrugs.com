@@ -4,35 +4,21 @@ import styles from "./EmpForm.module.css";
 import Input from "../form/Input";
 import SubmitButton from "../form/SubmitButton";
 //hooks
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-function EmpForm({btnText, handleSubmit, empData}) {
+function EmpForm({btnText, handleSubmit, empData, close}) {
     
     const [data, setData] = useState(empData || {})
-
-    //GET request
-    useEffect(() => {
-        fetch('https://idrugs-app.herokuapp.com/idrugs-app/pharma/user', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then((res) => res.json())
-        .then((data) => {
-                setData(data)
-                console.log(data)
-            })
-        .catch((err) => console.log(err))
-    }, [])
 
     const submit = (e) => {
         e.preventDefault()
         handleSubmit(data)
+        close()
     }
 
     function handleChange(e) {
         setData({ ...data, [e.target.name]: e.target.value})
+        console.log(data)
     }
 
     return (
@@ -82,7 +68,6 @@ function EmpForm({btnText, handleSubmit, empData}) {
                 text="Senha"
                 name="password"
                 placeholder="Digite senha do funcionário"
-                value={data.password}
                 handleOnChange={handleChange}
             />
             <SubmitButton text={btnText}/>

@@ -37,6 +37,7 @@ function EmpCard({employee, id, name, last_name, office, photo_link, email, hand
 
     function openEditModal() {
         setEditModal(true);
+        console.log(employee)
     }
     function closeEditModal() {
         setEditModal(false);
@@ -62,7 +63,12 @@ function EmpCard({employee, id, name, last_name, office, photo_link, email, hand
                     </button>
                     <Modal open={editModal} >
                         <div>
-                            <EmpForm handleSubmit={handleEdit} btnText="Salvar" empData={employee}/>
+                            <EmpForm 
+                                handleSubmit={handleEdit} 
+                                btnText="Salvar" 
+                                empData={employee} 
+                                close={closeEditModal}
+                            />
                             <button onClick={closeEditModal}>Cancelar</button>
                         </div>
                     </Modal>

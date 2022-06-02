@@ -56,7 +56,7 @@ function Products () {
         })
     }
 
-    //UPDATE (PUT) Employee
+    //UPDATE (PUT) Product
     function updateProduct(prod) {
         fetch("https://idrugs-app.herokuapp.com/idrugs-app/pharma/product", {
             method: 'PUT',

@@ -64,13 +64,17 @@ function Employees() {
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             },
-            body: JSON.stringify(emp),
+            body: JSON.stringify({"_id": emp._id.$oid,
+            "name": emp.name,
+            "email": emp.email,
+            "last_name": emp.last_name,
+            "office": emp.office,
+            "photo_link": emp.photo_link}),
         })
         .then((res) => res.json())
         .then((data) => {
             console.log(data)
-            //setEmployees(employees.filter((employee) => employee._id.$oid !== id))
-            //setDeleteMessage('Funcionário Removido com Sucesso!')
+            setAddMessage("Funcionário Modificado com Sucesso!")
         }).catch((err) => console.log(err))
     }
 

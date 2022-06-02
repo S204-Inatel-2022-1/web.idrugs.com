@@ -26,7 +26,6 @@ function ProdCard({product, handleRemove, handleEdit}) {
             console.log(phot)
             return phot
         }
-        console.log(phot)
         return "https://cityhighschool.org/files/nophoto.png"
     }
 
