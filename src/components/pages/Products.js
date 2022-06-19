@@ -56,40 +56,6 @@ function Products () {
         })
     }
 
-    //UPDATE (PUT) Product
-    function updateProduct(prod) {
-        fetch("https://idrugs-app.herokuapp.com/idrugs-app/pharma/product", {
-            method: 'PUT',
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            },
-            body: JSON.stringify(prod),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-            //setEmployees(employees.filter((employee) => employee._id.$oid !== id))
-            //setDeleteMessage('Funcionário Removido com Sucesso!')
-        }).catch((err) => console.log(err))
-    }
-
-    //DELETE Employee
-    function removeProduct(id) {
-        fetch("https://idrugs-app.herokuapp.com/idrugs-app/pharma/product", {
-            method: 'DELETE',
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            },
-            body: JSON.stringify({_id: `${id}`}),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-            setProducts(products.filter((product) => product._id.$oid !== id))
-            setDeleteMessage('Produto Removido com Sucesso!')
-        }).catch((err) => console.log(err))
-    }
-
     return (
         <div className={styles.control}>
             <div className={styles.control_div_emp}>
@@ -103,8 +69,6 @@ function Products () {
                         products.map((prod) => (
                             <ProdCard 
                                 product={prod}
-                                handleRemove={removeProduct}
-                                handleEdit={updateProduct}
                                 key={prod._id.$oid}
                             />
                         ))}
