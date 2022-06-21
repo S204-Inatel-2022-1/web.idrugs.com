@@ -1,0 +1,14 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.control_modal {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  position: relative;
+  z-index: 1;
+}

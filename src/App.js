@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 //PAGES
 import Departments from './components/pages/Departments';
+import Department from "./components/pages/Department";
 import Home from './components/pages/Home';
 import Employees from './components/pages/Employees';
 import Products from './components/pages/Products';
@@ -23,6 +24,7 @@ function App() {
         <Routes >
           <Route path="/" element={<Home />} />
           <Route path="/Departments" element={<Departments />} />
+          <Route path="/Departments/:name" element={<Department />} />
           <Route path="/Employees" element={<Employees />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/Product/:name" element={<Product />} />
