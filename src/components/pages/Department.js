@@ -1,6 +1,8 @@
+import styles from "./Department.module.css"
 //layout
-//import Message from "../layout/Message";
-import Loading  from "../layout/Loading";
+import Loading from "../layout/Loading";
+//products
+import ProdCard from "../products/ProdCard";
 //Hooks
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -12,7 +14,7 @@ function Department() {
   const { id } = useParams()
 
   // all products from department 
-  const [data, setData] = useState({})
+  const [products, setProducts] = useState({})
   //symbol loading page
   const [removeLoading, setRemoveLoading] = useState(false)
 
@@ -26,30 +28,46 @@ function Department() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setData(data)
+        setProducts(data)
         setRemoveLoading(true)
       })
       .catch((err) => console.log(err))
 
   }, [id])
 
-  
+  //name type of product
+  const [typeName, setTypeName] = useState("")
+
+  useEffect(() => {
+    fetch(`https://idrugs-app.herokuapp.com/idrugs-app/pharma/type/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTypeName(data.name)
+        console.log(data)
+      })
+      .catch((err) => console.log(err))
+  }, [id])
+
+
+
 
   return (
-    <div>
-      <div>
-        <div>
-          {data.length > 0 &&
-            data.map((prod) => (
-              <div key={prod._id.$oid}>
-                <p> <span>Nome:</span> {prod.name} </p>
-                <p> <span>Marca:</span> {prod.brand}     </p>
+    <div className={styles.control}>
+      <h1 className={styles.title}>{typeName}</h1>
 
-                <p> <span>Valor:</span> {prod.price}    </p>
-              </div>
-            ))}
-        </div>
-
+      <div className={styles.control_list}>
+        {products.length > 0 &&
+          products.map((prod) => (
+            <ProdCard
+              product={prod}
+              key={prod._id.$oid}
+            />
+          ))}
         {!removeLoading && <Loading />}
       </div>
     </div>
