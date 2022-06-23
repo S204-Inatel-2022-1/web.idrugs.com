@@ -52,11 +52,11 @@ function Departments() {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       },
-      body: JSON.stringify({"name": dep.department}),
+      body: JSON.stringify({ "name": dep.department }),
     })
       .then((res) => res.json())
       .then((data) => {
-        
+
         console.log(data)
         setAddMessage("Departamento Adicionado com Sucesso!")
       })
@@ -85,11 +85,9 @@ function Departments() {
 
   return (
     <div className={styles.control}>
-      <div className={styles.control}>
+      <div>
         <h1>Departamentos</h1>
       </div>
-
-      {addMessage && <Message msg={addMessage} type="success" />}
 
       <div className={styles.control_modal}>
         <button onClick={openAddModal}>Cadastrar</button>
@@ -110,17 +108,22 @@ function Departments() {
         </Modal>
       </div>
 
-      <div className={styles.control}>
+
+      {addMessage && <Message msg={addMessage} type="success" />}
+
+      <div className={styles.control_list}>
         {departments.length > 0 &&
           departments.map((dep) => (
             <div key={dep._id.$oid}>
-              <Link to={`/Departments/${dep.name}`}> 
+              <Link to={`/Departments/${dep._id.$oid}`}>
                 <button>{dep.name}</button>
               </Link>
             </div>
           ))}
         {!removeLoading && <Loading />}
       </div>
+
+
     </div>
   )
 

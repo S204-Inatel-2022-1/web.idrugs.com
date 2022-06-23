@@ -24,10 +24,10 @@ function App() {
         <Routes >
           <Route path="/" element={<Home />} />
           <Route path="/Departments" element={<Departments />} />
-          <Route path="/Departments/:name" element={<Department />} />
+          <Route path="/Departments/:id" element={<Department />} />
           <Route path="/Employees" element={<Employees />} />
           <Route path="/Products" element={<Products />} />
-          <Route path="/Product/:name" element={<Product />} />
+          <Route path="/Product/:id" element={<Product />} />
         </Routes>
       </Container>
 

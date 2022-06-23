@@ -1,5 +1,5 @@
 //layout
-import Message from "../layout/Message";
+//import Message from "../layout/Message";
 import Loading  from "../layout/Loading";
 //Hooks
 import { useState, useEffect } from "react";
@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 function Department() {
 
   //department name
-  const { name } = useParams()
+  const { idProd } = useParams()
 
   // all products from department 
   const [data, setData] = useState({})
@@ -18,13 +18,11 @@ function Department() {
 
   //GET all employees
   useEffect(() => {
-
-    fetch('https://idrugs-app.herokuapp.com/idrugs-app/pharma/product', {
+    fetch(`https://idrugs-app.herokuapp.com/idrugs-app/pharma/product/type/${idProd}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ "type": name }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -33,7 +31,7 @@ function Department() {
       })
       .catch((err) => console.log(err))
 
-  }, [])
+  }, [idProd])
 
   return (
     <div>
