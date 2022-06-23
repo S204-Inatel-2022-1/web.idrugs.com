@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 function Department() {
 
   //department name
-  const { idProd } = useParams()
+  const { id } = useParams()
 
   // all products from department 
   const [data, setData] = useState({})
@@ -18,7 +18,7 @@ function Department() {
 
   //GET all employees
   useEffect(() => {
-    fetch(`https://idrugs-app.herokuapp.com/idrugs-app/pharma/product/type/${idProd}`, {
+    fetch(`https://idrugs-app.herokuapp.com/idrugs-app/pharma/product/type/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,9 @@ function Department() {
       })
       .catch((err) => console.log(err))
 
-  }, [idProd])
+  }, [id])
+
+  
 
   return (
     <div>
