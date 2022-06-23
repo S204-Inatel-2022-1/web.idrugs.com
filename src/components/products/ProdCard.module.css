@@ -1,16 +1,12 @@
 .emp_card {
-    width: 32.5%;
-    height: 320px;
+    width: 23%;
+    height: 380px;
     padding: 0.6em;
     border: 1px solid #000;
     border-radius: 8px;
     margin: 0.4%;
     position: relative;
     z-index: 2;
-}
-
-.emp_card span {
-    padding: 8px;
 }
 
 .emp_card_height {
@@ -44,10 +40,11 @@
 .emp_card p {
     justify-content: space-between;
     color: #282c34;
-    margin-bottom: 1em;
+    margin-bottom: 5px;
 }
 
 .emp_card p span {
+    padding: 8px;
     font-weight: 900;
 }
 

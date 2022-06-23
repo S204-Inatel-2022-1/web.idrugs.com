@@ -23,16 +23,21 @@ function ProdForm({ btnText, handleSubmit, empData, close }) {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-        setType(data)
+      .then((dat) => {
+        setType(dat)
       })
       .catch((err) => console.log(err))
   }, [])
 
   const submit = (e) => {
     e.preventDefault()
-    data._id = data._id.$oid;
-    handleSubmit(data)
+    if(data._id) {
+      data._id = data._id.$oid
+      handleSubmit(data)
+    }
+    else {
+      handleSubmit(data)
+    }
     close()
   }
 
@@ -80,7 +85,7 @@ function ProdForm({ btnText, handleSubmit, empData, close }) {
         text="Departamento"
         options={type}
         handleOnChange={handleType}
-        value={data.type ? data.type: ''}
+        value={data.type ? data.type : ''}
       />
       <Input
         type="text"

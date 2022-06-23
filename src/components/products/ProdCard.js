@@ -35,7 +35,8 @@ function ProdCard({ product }) {
 
         <Link to={`/Product/${id}`}> <h4>{name}</h4> </Link>
 
-        <p> <span>Marca:</span> {brand}   <span>Valor:</span> {price} </p>
+        <p> <span>Marca:</span> {brand} </p>
+        <p> <span>Valor:</span> R${price} </p>
       </div>
     </>
   )
